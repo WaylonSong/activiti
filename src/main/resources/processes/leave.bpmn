@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1483576268271" name="" targetNamespace="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <collaboration id="COLLABORATION_1" isClosed="false">
+    <participant id="_2" name="Pool" processRef="myProcess_1">
+      <participantMultiplicity maximum="1" minimum="0"/>
+    </participant>
+  </collaboration>
+  <process activiti:candidateStarterUsers="swl" id="leave_process" isClosed="false" isExecutable="true" processType="None">
+    <laneSet>
+      <lane id="_3" name="Staff">
+        <flowNodeRef>_5</flowNodeRef>
+        <flowNodeRef>_6</flowNodeRef>
+        <flowNodeRef>_10</flowNodeRef>
+        <flowNodeRef>_12</flowNodeRef>
+      </lane>
+      <lane id="_4" name="Leader">
+        <flowNodeRef>_8</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="_5" name="StartEvent"/>
+    <userTask activiti:candidateUsers="swl" activiti:exclusive="true" id="_6" name="apply"/>
+    <sequenceFlow id="_7" sourceRef="_5" targetRef="_6"/>
+    <userTask activiti:candidateUsers="leader" activiti:exclusive="true" id="_8" name="approve"/>
+    <sequenceFlow id="_9" sourceRef="_6" targetRef="_8"/>
+    <userTask activiti:candidateUsers="swl" activiti:exclusive="true" id="_10" name="confirm"/>
+    <sequenceFlow id="_11" sourceRef="_8" targetRef="_10"/>
+    <endEvent id="_12" name="EndEvent"/>
+    <sequenceFlow id="_13" sourceRef="_10" targetRef="_12"/>
+  </process>
+  <bpmndi:BPMNDiagram documentation="background=#FFFFFF;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+    <bpmndi:BPMNPlane bpmnElement="COLLABORATION_1">
+      <bpmndi:BPMNShape bpmnElement="_2" id="Shape-_2" isExpanded="true" isHorizontal="true">
+        <omgdc:Bounds height="400.0" width="1494.0" x="0.0" y="55.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="400.0" width="1494.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_3" id="Shape-_3" isExpanded="true" isHorizontal="true">
+        <omgdc:Bounds height="200.0" width="1494.0" x="0.0" y="55.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="200.0" width="1494.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4" id="Shape-_4" isExpanded="true" isHorizontal="true">
+        <omgdc:Bounds height="200.0" width="1469.0" x="26.0" y="255.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="200.0" width="1469.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_5" id="Shape-_5">
+        <omgdc:Bounds height="32.0" width="32.0" x="84.0" y="85.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_6" id="Shape-_6">
+        <omgdc:Bounds height="60.0" width="80.0" x="100.0" y="145.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="60.0" width="80.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_10" id="Shape-_10">
+        <omgdc:Bounds height="55.0" width="85.0" x="210.0" y="145.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_12" id="Shape-_12">
+        <omgdc:Bounds height="32.0" width="32.0" x="325.0" y="125.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_8" id="Shape-_8">
+        <omgdc:Bounds height="67.0" width="95.0" x="140.0" y="340.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="67.0" width="95.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_13" id="BPMNEdge__13" sourceElement="_10" targetElement="_12">
+        <omgdi:waypoint x="295.0" y="172.5"/>
+        <omgdi:waypoint x="325.0" y="141.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_7" id="BPMNEdge__7" sourceElement="_5" targetElement="_6">
+        <omgdi:waypoint x="108.0" y="114.85640646055103"/>
+        <omgdi:waypoint x="108.0" y="145.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_9" id="BPMNEdge__9" sourceElement="_6" targetElement="_8">
+        <omgdi:waypoint x="160.0" y="205.0"/>
+        <omgdi:waypoint x="160.0" y="340.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_11" id="BPMNEdge__11" sourceElement="_8" targetElement="_10">
+        <omgdi:waypoint x="222.5" y="340.0"/>
+        <omgdi:waypoint x="222.5" y="200.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
