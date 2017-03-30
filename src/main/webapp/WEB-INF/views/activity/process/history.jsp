@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <script src="/js/jquery-2.2.1.min.js"></script>
     <title>Process History</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
         contentType : 'application/json',
         success: function(result){
             $.each(result.data, function(index, item){
-                $(".list").append("<li><a href=''>点击启动</a><span>"+JSON.stringify(item)+"</span></li>");
+                $(".list").append("<li><span>"+JSON.stringify(item)+"</span></li>");
             });
             console.log(result);
         },

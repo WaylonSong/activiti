@@ -30,7 +30,7 @@ process变量信息:
 <script src="/js/jquery-2.2.1.min.js"></script>
 <script>
     var key = window.location.pathname.substring(window.location.pathname.lastIndexOf("/")+1);
-    var executionId;
+    window.processInstanceId = "";
     $(".manual").append("<form action='/activity/task/"+key+"' method='post'><input name='isApproved'/><input type='submit'></input></form><br>");
     $.ajax({
         type: "GET",
@@ -38,7 +38,7 @@ process变量信息:
         dataType: 'json',
         contentType : 'application/json',
         success: function(result){
-            executionId = result.executionId;
+            window.processInstanceId = result.processInstanceId;
             $(".form").html(JSON.stringify(result));
             console.log(result);
         },
@@ -57,10 +57,10 @@ process变量信息:
         success: function(result){
             $(".detail").html(JSON.stringify(result));
             console.log(result);
-            executionId = result.executionId;
+            window.processInstanceId = result.processInstanceId;
             $.ajax({
                 type: "GET",
-                url: "/history/historic-process-instances/"+executionId,
+                url: "/history/historic-process-instances/"+ window.processInstanceId,
                 dataType: 'json',
                 contentType : 'application/json',
                 success: function(result){
@@ -74,12 +74,12 @@ process变量信息:
             });
             $.ajax({
                 type: "GET",
-                url: "/history/historic-variable-instances?processInstanceId="+executionId,
+                url: "/history/historic-variable-instances?processInstanceId="+window.processInstanceId,
                 dataType: 'json',
                 contentType : 'application/json',
                 success: function(result){
                     $(".variables").html(JSON.stringify(result));
-                    $(".diagram").append("<image src='/runtime/process-instances/"+executionId+"/diagram'/>")
+                    $(".diagram").append("<image src='/runtime/process-instances/"+result.data[0].processInstanceId+"/diagram'/>")
                     console.log(result);
                 },
                 error: function(result){

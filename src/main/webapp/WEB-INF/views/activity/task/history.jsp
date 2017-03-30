@@ -1,36 +1,32 @@
 <%--
   Created by IntelliJ IDEA.
   User: song
-  Date: 2017/2/28
-  Time: 上午10:57
+  Date: 2017/3/30
+  Time: 下午12:44
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <script src="/js/jquery-2.2.1.min.js"></script>
-    <title>task列表</title>
+    <title>Process History</title>
 </head>
 <body>
-task列表
-<div class="list">reacting</div><br>
-访问地址
-http://127.0.0.1:8082/activity/task/execute/<input id="taskId"/><input type="button" value="执行" onclick="jump()"/>
+历史流程列表
+<ul class="list"></ul>
 </body>
 
 
-
 <script>
-    function jump() {
-        window.location = "http://127.0.0.1:8082/activity/task/execute/"+$("#taskId").val();
-    }
     $.ajax({
         type: "GET",
-        url: "/runtime/tasks",
+        url: "/history/historic-task-instances",
         dataType: 'json',
         contentType : 'application/json',
         success: function(result){
-            $(".list").html(JSON.stringify(result));
+            $.each(result.data, function(index, item){
+                $(".list").append("<li><span>"+JSON.stringify(item)+"</span></li>");
+            });
             console.log(result);
         },
         error: function(result){

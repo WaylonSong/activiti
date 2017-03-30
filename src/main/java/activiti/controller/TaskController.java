@@ -25,6 +25,11 @@ public class TaskController {
         return "activity/task/list";
     }
 
+    @RequestMapping(value="/history", method= RequestMethod.GET)
+    public String history() {
+        return "activity/task/history";
+    }
+
     @RequestMapping(value="/execute/{taskId}", method= RequestMethod.GET)
     public String toExecute() {
         return "activity/task/execute";
