@@ -1,11 +1,9 @@
 package activiti.service;
 
 import org.activiti.engine.*;
-import org.activiti.engine.form.StartFormData;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -90,9 +88,11 @@ public class ActivityService {
         }
     }
 
-    public void viewTask(String id) {
+    public Map viewTask(String id) {
         //starter
         Map map = taskService.getVariables(id);
+        System.out.println();
 //        taskService.
+        return map;
     }
 }
